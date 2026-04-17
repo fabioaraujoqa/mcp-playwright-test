@@ -52,43 +52,12 @@ module.exports = defineConfig({
     trace: 'on-first-retry',
   },
 
-  // Configuração de projetos (Chrome, Firefox, Safari, etc)
+  // Configuração de projetos
+  // Apenas Chromium — alinhado com o ambiente de CI (GitHub Actions)
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-    },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-
-    /* Testes em mobile */
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
-    },
-
-    /* Testes no Edge */
-    {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    },
-
-    /* Testes no Google Chrome */
-    {
-      name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     },
   ],
 

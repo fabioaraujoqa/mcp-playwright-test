@@ -5,15 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "test:debug": "playwright test --debug",
     "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
     "test:report": "playwright show-report",
     "test:codegen": "playwright codegen",
-    "test:update-snapshots": "playwright test --update-snapshots",
-    "test:contact": "playwright test tests/hub-leitura/contato-form.spec.js",
-    "test:contact:headed": "playwright test tests/hub-leitura/contato-form.spec.js --headed",
-    "test:contact:debug": "playwright test tests/hub-leitura/contato-form.spec.js --debug",
     "install:browsers": "playwright install",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix",
@@ -53,7 +49,7 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{json,md,sh}": [
+    "*.{json,md}": [
       "prettier --write"
     ],
     "**/*.{js,json,sh}": [

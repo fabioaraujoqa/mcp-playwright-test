@@ -75,7 +75,21 @@ npm run test:debug
 npm run test:ui
 ```
 
-### 4️⃣ Ver Relatório
+### 4️⃣ Gravar Testes com Codegen
+
+O **Codegen** abre o navegador e gera código Playwright automaticamente conforme você interage com a página:
+
+```bash
+# Abre o navegador + painel de gravação
+npm run test:codegen
+
+# Ou já com uma URL específica
+npm run test:codegen -- https://sua-app.com.br
+```
+
+Copie o código gerado para o seu arquivo `.spec.js`.
+
+### 5️⃣ Ver Relatório
 
 ```bash
 npm run test:report
@@ -146,6 +160,7 @@ npm run test:headed         # Com navegador visível
 npm run test:debug          # Modo debug
 npm run test:ui             # Interface visual
 npm run test:report         # Relatório HTML
+npm run test:codegen        # Gravar ações e gerar código
 npm run install:browsers    # Instalar browsers
 npm run lint                # Code style
 npm run format              # Formatar código
