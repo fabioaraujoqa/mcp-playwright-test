@@ -1,0 +1,63 @@
+{
+  "name": "mcp-playwright-test",
+  "version": "1.0.0",
+  "description": "Automação de testes com Playwright MCP - Best practices e padrões",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "test:codegen": "playwright codegen",
+    "test:update-snapshots": "playwright test --update-snapshots",
+    "test:contact": "playwright test tests/hub-leitura/contato-form.spec.js",
+    "test:contact:headed": "playwright test tests/hub-leitura/contato-form.spec.js --headed",
+    "test:contact:debug": "playwright test tests/hub-leitura/contato-form.spec.js --debug",
+    "install:browsers": "playwright install",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "secrets:check": "secretlint --secretlintrc .secretlintrc.json \"**/*.{js,json,sh}\"",
+    "audit:check": "npm audit --audit-level=high",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "automation",
+    "mcp",
+    "e2e"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@secretlint/secretlint-rule-preset-recommend": "^11.7.1",
+    "dotenv": "^16.0.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-playwright": "^2.10.1",
+    "eslint-plugin-security": "^4.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.0.0",
+    "secretlint": "^11.7.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,sh}": [
+      "prettier --write"
+    ],
+    "**/*.{js,json,sh}": [
+      "secretlint --secretlintrc .secretlintrc.json"
+    ]
+  }
+}
