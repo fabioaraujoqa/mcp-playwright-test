@@ -8,6 +8,9 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
 
+  // Ignorar pasta de templates (não são testes executáveis)
+  testIgnore: ['**/_templates/**'],
+
   // Quantidade de testes a rodar em paralelo
   fullyParallel: true,
 

@@ -25,9 +25,15 @@ test-results/
 playwright-report/
 .test-cache/
 
-# Screenshots locais
+# Playwright MCP (artefatos temporários do servidor MCP, não são testes)
+# Contém snapshots, logs e screenshots das sessões interativas do browser MCP
+.playwright-mcp/
+
+# Screenshots locais (todos os formatos que o Playwright e o MCP podem gerar)
 tests/evidencias/**/*.png
 tests/evidencias/**/*.jpg
+tests/evidencias/**/*.webp
+tests/evidencias/**/*.jpeg
 
 # Playwright
 .auth/
@@ -40,7 +46,9 @@ node_modules/
 Thumbs.db
 
 # IDE
-.vscode
+.vscode/*
+!.vscode/mcp.json
+!.vscode/mcp.json.example
 .idea
 *.swp
 *.swo

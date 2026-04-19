@@ -55,5 +55,8 @@
     "**/*.{js,json,sh}": [
       "secretlint --secretlintrc .secretlintrc.json"
     ]
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.11.2"
   }
 }

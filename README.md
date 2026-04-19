@@ -102,24 +102,26 @@ npm run test:report
 ```
 mcp-playwright-test/
 ├── docs/                          # Documentação completa
-│   ├── 00-ARQUITETURA.md
-│   ├── 01-BOAS_PRATICAS.md
-│   ├── 02-SELETORES_ROBUSTOS.md
-│   ├── 03-VARIAVEIS_AMBIENTE.md
-│   └── 04-CHECKLIST_QUALIDADE.md
+│   ├── 00-ARQUITETURA.md         # Estrutura, convenções e como adicionar domínios
+│   ├── 01-BOAS_PRATICAS.md       # Padrões de código, viewport, evidências
+│   ├── 02-SELETORES_ROBUSTOS.md  # Estratégias de seletores
+│   ├── 03-VARIAVEIS_AMBIENTE.md  # Configuração de .env.*
+│   └── 04-CHECKLIST_QUALIDADE.md # Checklist antes de subir o teste
 ├── tests/
 │   ├── helpers/
-│   │   └── evidencia-helper.js
-│   ├── hub-leitura/
-│   │   └── contato-form.spec.js
-│   ├── sistema1/
-│   │   └── exemplo-login.spec.js
-│   └── evidencias/               # Screenshots gerados
-├── .env.example                  # Template
-├── .env.sistema1                 # Credenciais (GITIGNORE)
-├── package.json
+│   │   └── evidencia-helper.js   # Screenshots + loadEnv + validateEnv
+│   ├── _templates/
+│   │   └── exemplo-login.spec.js # Template para novos testes (não executado)
+│   ├── devreferencias/           # Testes do devreferencias.com.br
+│   ├── fiap/                     # Testes do fiap.com.br
+│   ├── hub-leitura/              # Testes do hub-de-leitura.vercel.app
+│   └── evidencias/               # Screenshots gerados (não sobe no Git)
+├── scripts/
+│   ├── setup.sh                  # Setup inicial
+│   └── run-tests.sh              # Menu interativo
+├── .env.example                  # Template de variáveis de ambiente
 ├── playwright.config.js
-└── README.md
+└── jsconfig.json
 ```
 
 ---
@@ -197,6 +199,7 @@ cp .env.example .env.sistema1
 - [Playwright Docs](https://playwright.dev/)
 - [MCP Documentation](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
 - [GitHub - Playwright MCP](https://github.com/microsoft/playwright-mcp)
+- [MCP Security Best Practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices)
 
 ---
 
