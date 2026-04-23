@@ -1,4 +1,5 @@
 const { defineConfig, devices } = require('@playwright/test');
+require('dotenv').config();
 
 /**
  * Configuração do Playwright para testes automatizados

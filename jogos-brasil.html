@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brasil na Copa do Mundo 2026</title>
+  <style>
+    :root {
+      --verde: #009c3b;
+      --amarelo: #ffdf00;
+      --azul: #002776;
+      --branco: #ffffff;
+      --cinza-claro: #f4f4f4;
+      --cinza-borda: #ddd;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #002776 0%, #011a4f 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 60px;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--amarelo);
+      color: var(--azul);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--branco);
+      line-height: 1.2;
+    }
+
+    header h1 span {
+      color: var(--amarelo);
+    }
+
+    header p.subtitulo {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+
+    .grupo-badge {
+      display: inline-block;
+      background: var(--verde);
+      color: var(--branco);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 5px 18px;
+      border-radius: 20px;
+      margin-top: 14px;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--branco);
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      overflow: hidden;
+      width: 100%;
+      max-width: 860px;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead {
+      background: var(--azul);
+      color: var(--branco);
+    }
+
+    thead th {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--cinza-borda);
+      transition: background 0.2s;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: #fffbe6;
+    }
+
+    tbody td {
+      padding: 18px 18px;
+      vertical-align: middle;
+      font-size: 0.95rem;
+      color: #222;
+    }
+
+    /* DATA + HORA */
+    .data-hora {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .data {
+      font-weight: 700;
+      color: var(--azul);
+      font-size: 0.9rem;
+    }
+
+    .hora {
+      font-size: 0.82rem;
+      color: #666;
+    }
+
+    /* JOGO */
+    .jogo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .time {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bandeira {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .vs {
+      color: #aaa;
+      font-size: 0.8rem;
+      font-weight: 400;
+      padding: 0 4px;
+    }
+
+    .time-brasil .nome {
+      color: var(--verde);
+    }
+
+    /* ESTADIO */
+    .estadio {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .estadio-nome {
+      font-weight: 600;
+      color: #333;
+      font-size: 0.88rem;
+    }
+
+    .cidade {
+      font-size: 0.78rem;
+      color: #888;
+    }
+
+    /* RODADA */
+    .rodada {
+      display: inline-block;
+      background: var(--cinza-claro);
+      color: #555;
+      border-radius: 10px;
+      padding: 3px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* ONDE ASSISTIR */
+    .assistir {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .canal {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    .canal-globo  { background: #e8f5e9; color: #1b5e20; }
+    .canal-sportv { background: #e3f2fd; color: #0d47a1; }
+    .canal-gplay  { background: #fce4ec; color: #880e4f; }
+
+    /* FOOTER */
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.78rem;
+    }
+
+    footer a {
+      color: var(--amarelo);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+      tbody td { padding: 14px 12px; }
+      thead th { padding: 12px 12px; }
+      .jogo { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .vs { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">FIFA World Cup 2026™</div>
+    <h1>Brasil na <span>Copa do Mundo 2026</span></h1>
+    <p class="subtitulo">Fase de Grupos — horários em BRT (UTC-3)</p>
+    <span class="grupo-badge">Grupo C</span>
+  </header>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Data &amp; Hora</th>
+          <th>Jogo</th>
+          <th>Estádio</th>
+          <th>Onde Assistir</th>
+          <th>Rodada</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td><strong>1</strong></td>
+          <td>
+            <div class="data-hora">
+              <span class="data">Sáb, 13 Jun 2026</span>
+              <span class="hora">19:00 BRT</span>
+            </div>
+          </td>
+          <td>
+            <div class="jogo">
+              <div class="time time-brasil">
+                <span class="bandeira">🇧🇷</span>
+                <span class="nome">Brasil</span>
+              </div>
+              <span class="vs">vs</span>
+              <div class="time">
+                <span class="bandeira">🇲🇦</span>
+                <span>Marrocos</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="estadio">
+              <span class="estadio-nome">MetLife Stadium</span>
+              <span class="cidade">Nova York / New Jersey</span>
+            </div>
+          </td>
+          <td>
+            <div class="assistir">
+              <span class="canal canal-globo">📺 TV Globo</span>
+              <span class="canal canal-sportv">📡 SporTV</span>
+              <span class="canal canal-gplay">▶️ Globoplay</span>
+            </div>
+          </td>
+          <td><span class="rodada">1ª Rodada</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>2</strong></td>
+          <td>
+            <div class="data-hora">
+              <span class="data">Sex, 19 Jun 2026</span>
+              <span class="hora">21:30 BRT</span>
+            </div>
+          </td>
+          <td>
+            <div class="jogo">
+              <div class="time time-brasil">
+                <span class="bandeira">🇧🇷</span>
+                <span class="nome">Brasil</span>
+              </div>
+              <span class="vs">vs</span>
+              <div class="time">
+                <span class="bandeira">🇭🇹</span>
+                <span>Haiti</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="estadio">
+              <span class="estadio-nome">Lincoln Financial Field</span>
+              <span class="cidade">Filadélfia</span>
+            </div>
+          </td>
+          <td>
+            <div class="assistir">
+              <span class="canal canal-globo">📺 TV Globo</span>
+              <span class="canal canal-sportv">📡 SporTV</span>
+              <span class="canal canal-gplay">▶️ Globoplay</span>
+            </div>
+          </td>
+          <td><span class="rodada">2ª Rodada</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>3</strong></td>
+          <td>
+            <div class="data-hora">
+              <span class="data">Qua, 24 Jun 2026</span>
+              <span class="hora">19:00 BRT</span>
+            </div>
+          </td>
+          <td>
+            <div class="jogo">
+              <div class="time">
+                <span class="bandeira">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+                <span>Escócia</span>
+              </div>
+              <span class="vs">vs</span>
+              <div class="time time-brasil">
+                <span class="bandeira">🇧🇷</span>
+                <span class="nome">Brasil</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="estadio">
+              <span class="estadio-nome">Hard Rock Stadium</span>
+              <span class="cidade">Miami</span>
+            </div>
+          </td>
+          <td>
+            <div class="assistir">
+              <span class="canal canal-globo">📺 TV Globo</span>
+              <span class="canal canal-sportv">📡 SporTV</span>
+              <span class="canal canal-gplay">▶️ Globoplay</span>
+            </div>
+          </td>
+          <td><span class="rodada">3ª Rodada</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    Dados extraídos de
+    <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank">
+      fifa.com
+    </a>
+    em 20 de abril de 2026.
+  </footer>
+
+</body>
+</html>
